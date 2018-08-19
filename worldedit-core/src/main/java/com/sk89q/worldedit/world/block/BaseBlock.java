@@ -25,7 +25,6 @@ import com.sk89q.jnbt.CompoundTag;
 import com.sk89q.jnbt.StringTag;
 import com.sk89q.jnbt.Tag;
 import com.sk89q.worldedit.blocks.TileEntityBlock;
-import com.sk89q.worldedit.function.mask.Mask;
 import com.sk89q.worldedit.registry.state.Property;
 
 import java.util.Map;
@@ -140,7 +139,7 @@ public class BaseBlock implements BlockStateHolder<BaseBlock>, TileEntityBlock {
 
         final BaseBlock otherBlock = (BaseBlock) o;
 
-        return this.toImmutableState().equals(otherBlock.toImmutableState()) && Objects.equals(getNbtData(), otherBlock.getNbtData());
+        return this.toImmutableState().equalsFuzzy(otherBlock.toImmutableState()) && Objects.equals(getNbtData(), otherBlock.getNbtData());
 
     }
 
